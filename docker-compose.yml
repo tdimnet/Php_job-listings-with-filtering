@@ -4,6 +4,8 @@ services:
     depends_on:
       - adminer
       - db
+    env_file:
+      - ./.env
     ports:
       - "8080:80"
     volumes:
@@ -16,9 +18,5 @@ services:
 
   db:
     image: mysql:9.1
-    environment:
-      MYSQL_DATABASE: jobs-db
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: toto90
-      MYSQL_ROOT_PASSWORD: supertoto90
-
+    env_file:
+      - ./.env

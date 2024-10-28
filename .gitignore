@@ -8,4 +8,4 @@ composer.phar
 #Global
 .DS_STORE
 .*.swp
-
+.env
