@@ -1,5 +1,9 @@
 <?php
 
+require_once("./vendor/autoload.php");
+
+$loader = new \Twig\Loader\FilesystemLoader("./views");
+$twig = new \Twig\Environment($loader);
 
 $servername = $_ENV["MYSQL_DATABASE_SERVER"];
 $username = $_ENV["MYSQL_USER"];
@@ -14,6 +18,4 @@ try {
     echo "Error when connecting to DB : " . $e->getMessage();
 }
 
-echo("Hello, World!");
-echo("<br />");
-
+echo $twig->render("home.twig");
