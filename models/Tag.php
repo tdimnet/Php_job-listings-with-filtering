@@ -4,7 +4,7 @@ class Tag {
     private int $id;
     private string $name;
 
-    public function __construct(string $name): void
+    public function __construct(string $name)
     {
         $this->name = $name;
     }

@@ -2,6 +2,9 @@
 
 require_once("./vendor/autoload.php");
 
+require_once("./models/JobOffer.php");
+
+
 $loader = new \Twig\Loader\FilesystemLoader("./views");
 $twig = new \Twig\Environment($loader);
 

@@ -10,7 +10,7 @@ class Company {
         $this->name = $name;
         $this->img = $img;
     }
-
+    
     public function getId(): int
     {
         return $this->id;
