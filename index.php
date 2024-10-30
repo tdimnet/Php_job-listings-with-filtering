@@ -14,8 +14,10 @@ $database = $_ENV["MYSQL_DATABASE_NAME"];
 //On établit la connexion
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
-} catch(PDOException $e) {
+} catch (PDOException $e) {
     echo "Error when connecting to DB : " . $e->getMessage();
 }
 
-echo $twig->render("home.twig");
+echo $twig->render("home.twig", [
+    "name" => "Thomas"
+]);
