@@ -5,13 +5,19 @@ require_once(realpath(dirname(__FILE__)) . "/Company.php");
 
 class JobOffer {
     private int $id;
-    private string $jobTitle;
+    private bool $isFeatured;
     private Company $company;
+    private DateTime $publishedAt;
+    private string $jobTitle;
+    private string $location;
 
-    public function __construct(string $jobTitle, string $companyName, string $companyImg)
+    public function __construct(string $jobTitle, string $companyName, string $companyImg, bool $isFeatured, DateTime $publishedAt, string $location)
     {
-        $this->jobTitle = $jobTitle;
         $this->company = new Company($companyName, $companyImg);
+        $this->isFeatured = $isFeatured;
+        $this->jobTitle = $jobTitle;
+        $this->location = $location;
+        $this->publishedAt = $publishedAt;
     }
 
     public function getId(): int
@@ -19,13 +25,38 @@ class JobOffer {
         return $this->id;
     }
 
+    public function getCompany(): Company
+    {
+        return $this->company;
+    }
+
+    public function setCompany(string $companyName, string $companyImg): void
+    {
+        $this->company = new Company($companyName, $companyImg);
+    }
+
+    public function getIsFeatured(): bool
+    {
+        return $this->isFeatured;
+    }
+
     public function getJobTitle(): string
     {
         return $this->jobTitle;
     }
 
-    public function getCompany(): Company
+    public function setJobTitle(string $jobTitle): void
     {
-        return $this->company;
+        $this->jobTitle = $jobTitle;
+    }
+
+    public function getLocation(): string
+    {
+        return $this->location;
+    }
+
+    public function getPublishedAt(): DateTime
+    {
+        return $this->publishedAt;
     }
 }
