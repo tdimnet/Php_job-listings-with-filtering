@@ -20,3 +20,4 @@ services:
     image: mysql:9.1
     env_file:
       - ./.env
+
