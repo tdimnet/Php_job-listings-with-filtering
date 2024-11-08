@@ -12,3 +12,4 @@ try {
 } catch (PDOException $e) {
     echo "Error when connecting to DB : " . $e->getMessage();
 }
+
