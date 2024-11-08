@@ -20,4 +20,7 @@ services:
     image: mysql:9.1
     env_file:
       - ./.env
+    volumes:
+      - ./config/data.sql:/docker-entrypoint-initdb.d/init.sql
+
 
