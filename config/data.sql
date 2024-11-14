@@ -7,29 +7,28 @@ SET NAMES utf8mb4;
 
 DROP TABLE IF EXISTS `tag`;
 CREATE TABLE `tag` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_0900_as_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` varchar(255) COLLATE utf8mb4_0900_as_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_as_ci;
 
 INSERT INTO `tag` (`id`, `name`) VALUES
-(1,	'front'),
-(2,	'senior');
+(1, 'front'),
+(2, 'senior');
 
 
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE `company` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(255) COLLATE utf8mb4_0900_as_ci NOT NULL,
-  `img` varchar(255) COLLATE utf8mb4_0900_as_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  `img` varchar(255) COLLATE utf8mb4_0900_as_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_as_ci;
 
 INSERT INTO `company` (`id`, `name`, `img`) VALUES
-(1,	'photosnap', 'photosnap.png'),
-(2,	'manage', 'manage.png');
+(1, 'photosnap', 'photosnap.png'),
+(2, 'manage', 'manage.png');
 
 
+DROP TABLE IF EXISTS `job_offer`;
 CREATE TABLE `job_offer` (
   `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(255) NOT NULL,
@@ -38,7 +37,19 @@ CREATE TABLE `job_offer` (
 ) ENGINE='InnoDB' DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_as_ci;
 
 INSERT INTO `job_offer` (`id`, `name`, `company_id`) VALUES
-(1,	'senior frontend developer', 1),
-(2,	'fullstack developer', 2);
+(1, 'senior frontend developer', 1),
+(2, 'fullstack developer', 2);
 
 
+DROP TABLE IF EXISTS `job_offer_tags`;
+CREATE TABLE `job_offer_tags` (
+  `ID` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `job_offer_id` int NOT NULL,
+  `tag_id` int NOT NULL,
+  FOREIGN KEY (`job_offer_id`) REFERENCES `job_offer` (`id`),
+  FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`)
+) ENGINE='InnoDB' DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_as_ci;
+
+INSERT INTO `job_offer_tags` (`id`, `job_offer_id`, `tag_id`) VALUES
+(1, 1, 1),
+(2, 1, 2);
