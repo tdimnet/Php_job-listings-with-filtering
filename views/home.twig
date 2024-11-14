@@ -9,9 +9,13 @@
 <body>
     <h1>Hello, World!</h1>
 
+    <ul class="job-offers">
     {% for jobOffer in jobOffers %}
-        {{ jobOffer.name }}
+        <li class="job-offer">
+            {{ jobOffer.name }}
+        </li>
     {% endfor %}
+    </ul>
 
 </body>
 </html>
