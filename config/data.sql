@@ -13,7 +13,21 @@ CREATE TABLE `tag` (
 
 INSERT INTO `tag` (`id`, `name`) VALUES
 (1, 'front'),
-(2, 'senior');
+(2, 'senior'),
+(3, 'html'),
+(4, 'css'),
+(5, 'javascript'),
+(6, 'fullstack'),
+(7, 'midweight'),
+(8, 'python'),
+(9, 'react'),
+(10, 'junior'),
+(11, 'sass'),
+(12, 'ruby'),
+(13, 'backend'),
+(14, 'ror'),
+(15, 'vue'),
+(16, 'django');
 
 
 DROP TABLE IF EXISTS `company`;
@@ -25,7 +39,15 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`id`, `name`, `img`) VALUES
 (1, 'photosnap', 'photosnap.png'),
-(2, 'manage', 'manage.png');
+(2, 'manage', 'manage.png'),
+(3, 'account', 'account.png'),
+(4, 'myhome', 'myhome.png'),
+(5, 'loop studios', 'loop-studios.png'),
+(6, 'facelt', 'facelt.png'),
+(7, 'shortly', 'shortly.png'),
+(8, 'insure', 'insure.png'),
+(9, 'eyecam co.', 'eyecam.png'),
+(10, 'the air-filter company', 'air-filter.png'),
 
 
 DROP TABLE IF EXISTS `job_offer`;
