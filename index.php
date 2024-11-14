@@ -8,17 +8,17 @@ $loader = new \Twig\Loader\FilesystemLoader("./views");
 $twig = new \Twig\Environment($loader);
 
 
-$sql1 = "SELECT * FROM tag";
+$mainQuery = "SELECT * FROM job_offer";
 
-$sqlStatement1 = $conn->prepare($sql1);
-$sqlStatement1->execute();
+$sqlStatement = $conn->prepare($mainQuery);
+$sqlStatement->execute();
 
-$tagsData = $sqlStatement1->fetchAll();
+$jobOffersData = $sqlStatement->fetchAll();
 
-var_dump($tagsData);
 
+var_dump($jobOffersData);
 
 
 echo $twig->render("home.twig", [
-    "name" => "Thomas"
+    "jobOffers" => $jobOffersData
 ]);
