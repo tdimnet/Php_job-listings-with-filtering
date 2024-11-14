@@ -8,14 +8,14 @@ $loader = new \Twig\Loader\FilesystemLoader("./views");
 $twig = new \Twig\Environment($loader);
 
 
-$sql = "SELECT * FROM tag";
+$sql1 = "SELECT * FROM tag";
 
-$sqlStatement = $conn->prepare($sql);
-$sqlStatement->execute();
+$sqlStatement1 = $conn->prepare($sql1);
+$sqlStatement1->execute();
 
-$data = $sqlStatement->fetchAll();
+$tagsData = $sqlStatement1->fetchAll();
 
-var_dump($data);
+var_dump($tagsData);
 
 
 
