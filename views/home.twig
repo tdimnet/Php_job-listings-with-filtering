@@ -10,9 +10,10 @@
     <h1>Hello, World!</h1>
 
     <ul class="job-offers">
-    {% for jobOffer in jobOffers %}
+    {% for key, value in jobOffers %}
         <li class="job-offer">
-            {{ jobOffer.name }}
+            <span>key: {{ key }}</span>
+            <span>value: {{ value }}</span>
         </li>
     {% endfor %}
     </ul>

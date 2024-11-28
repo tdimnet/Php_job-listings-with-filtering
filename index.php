@@ -21,7 +21,8 @@ $sqlStatement->execute();
 $jobOffersData = $sqlStatement->fetchAll();
 
 
-var_dump($jobOffersData);
+// var_dump($jobOffersData[0]);
+var_dump($jobOffersData[0][2]);
 
 
 echo $twig->render("home.twig", [
