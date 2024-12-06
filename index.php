@@ -7,8 +7,6 @@ require_once("./models/JobOffer.php");
 $loader = new \Twig\Loader\FilesystemLoader("./views");
 $twig = new \Twig\Environment($loader);
 
-
-// $mainQuery = "SELECT * FROM job_offer";
 $q = "
 SELECT 
         job_offer.id AS job_offer_id, 
@@ -25,16 +23,15 @@ SELECT
 
 $sqlStatement = $conn->prepare($q);
 $sqlStatement->execute();
-
 $jobOffersData = $sqlStatement->fetchAll(PDO::FETCH_ASSOC);
 
-
+/*
 echo "<br />";
 echo "<br />";
 var_dump($jobOffersData[0]);
 echo "<br />";
 echo "<br />";
-
+ */
 
 echo $twig->render("home.twig", [
     "jobOffers" => $jobOffersData
