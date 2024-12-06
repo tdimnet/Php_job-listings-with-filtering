@@ -8,5 +8,20 @@
 </head>
 <body>
     <h1>Hello, World!</h1>
+    <ul>
+      {% for jobOffer in jobOffers  %}
+        <li>
+          id: {{ jobOffer.job_offer_id }}
+          <br />
+          job title: {{ jobOffer.job_title }}
+          <br />
+         
+          {% set tags = jobOffer.tags|split(', ') %}
+          {% for tag in tags %}
+            <span>{{ tag }}</span>
+          {% endfor %}
+        </li>
+      {% endfor %}
+    </ul>
 </body>
 </html>
